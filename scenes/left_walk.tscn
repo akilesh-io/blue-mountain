@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://dxtljmxljd6se"]
+
+[ext_resource type="Texture2D" uid="uid://cuydbg2wubx25" path="res://assets/SpriteBase/frontleftwalk.png" id="1_b4apm"]
+[ext_resource type="Script" uid="uid://dxfrelnbaatlu" path="res://scripts/player.gd" id="1_twyau"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twyau"]
+atlas = ExtResource("1_b4apm")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rulw0"]
+atlas = ExtResource("1_b4apm")
+region = Rect2(128, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jpr6"]
+atlas = ExtResource("1_b4apm")
+region = Rect2(256, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3qyp"]
+atlas = ExtResource("1_b4apm")
+region = Rect2(384, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxegu"]
+atlas = ExtResource("1_b4apm")
+region = Rect2(512, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvt0f"]
+atlas = ExtResource("1_b4apm")
+region = Rect2(640, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1fty"]
+atlas = ExtResource("1_b4apm")
+region = Rect2(768, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywtt5"]
+atlas = ExtResource("1_b4apm")
+region = Rect2(896, 0, 128, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nen24"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twyau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rulw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jpr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3qyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxegu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvt0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1fty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywtt5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_217wo"]
+height = 240.0
+
+[node name="Player" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_twyau")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(66, -120)
+sprite_frames = SubResource("SpriteFrames_nen24")
+autoplay = "default"
+frame_progress = 0.390622
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(65, -121)
+shape = SubResource("CapsuleShape2D_217wo")

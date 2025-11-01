@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://btysge1cceocc"]
+
+[ext_resource type="Texture2D" uid="uid://b2sd5xdxsn5cy" path="res://assets/baground/Screenshot 2025-06-08 at 20-40-20 Old vs New — How does the upgraded version feel to you r_PixelArt.png" id="1_ahmwl"]
+[ext_resource type="PackedScene" uid="uid://dxtljmxljd6se" path="res://scenes/left_walk.tscn" id="2_shvwo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_shvwo"]
+texture = ExtResource("1_ahmwl")
+
+[sub_resource type="TileSet" id="TileSet_0h88j"]
+sources/2 = SubResource("TileSetAtlasSource_shvwo")
+
+[node name="Railway" type="Node2D"]
+
+[node name="station" type="Sprite2D" parent="."]
+position = Vector2(407, -308)
+texture = ExtResource("1_ahmwl")
+
+[node name="Camera2D" type="Camera2D" parent="station"]
+
+[node name="TileMap" type="TileMap" parent="station"]
+tile_set = SubResource("TileSet_0h88j")
+format = 2
+
+[node name="Node2D" parent="." instance=ExtResource("2_shvwo")]
+position = Vector2(256, -246)

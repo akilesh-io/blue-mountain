@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://1beg0wotbkjg"]
+
+[ext_resource type="Texture2D" uid="uid://bx7g13pxnemnj" path="res://assets/baground/bedroom.png" id="1_ldtmt"]
+[ext_resource type="PackedScene" uid="uid://dhww0jojvssk1" path="res://assets/3d/Walking.fbx" id="2_c1mel"]
+
+[sub_resource type="Animation" id="Animation_qnx1q"]
+resource_name = "cutscene-1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bedroom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(602, -450), Vector2(602, -450)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x757s"]
+_data = {
+&"cutscene-1": SubResource("Animation_qnx1q")
+}
+
+[node name="Cutscene-1" type="Node2D"]
+
+[node name="Bedroom" type="Sprite2D" parent="."]
+position = Vector2(602, -450)
+texture = ExtResource("1_ldtmt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x757s")
+}
+
+[node name="Walking" parent="." instance=ExtResource("2_c1mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.227764)
